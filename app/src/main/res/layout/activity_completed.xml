@@ -67,7 +67,7 @@
         android:text="Back to home"
         android:textAllCaps="false"
         android:fontFamily="@font/poppins_regular"
-        android:backgroundTint="@color/colorAccentLight"
+        android:backgroundTint="@color/colorAccent"
         android:insetBottom="0dp"
         android:insetTop="0dp"
         app:cornerRadius="@dimen/radiusLarge"

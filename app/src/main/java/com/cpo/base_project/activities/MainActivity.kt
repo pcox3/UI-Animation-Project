@@ -30,10 +30,8 @@ class MainActivity : ComponentActivity() {
                 categoriesRv.adapter = this
             }
 
-            searchView.setOnQueryTextFocusChangeListener { v, hasFocus ->
-                if (hasFocus) {
-                    launch(SearchActivity(), v, "search_bar")
-                }
+            searchView.setOnSearchClickListener {
+                launch(SearchActivity(), searchBar, "search_bar")
             }
 
 
@@ -61,12 +59,16 @@ class MainActivity : ComponentActivity() {
 
 
 
-    private fun launch(activity: Activity, view: View, transitionName: String = "toolbar") {
-        Intent(this@MainActivity, activity::class.java).apply {
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                this@MainActivity, view, transitionName
-            )
-            startActivity(this, options.toBundle())
+    private fun launch(activity: Activity, view: View, transitionName: String? = null) {
+        if (transitionName != null) {
+            Intent(this@MainActivity, activity::class.java).apply {
+                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    this@MainActivity, view, transitionName
+                )
+                startActivity(this, options.toBundle())
+            }
+        }else{
+            startActivity(Intent(this@MainActivity, activity::class.java))
         }
     }
 

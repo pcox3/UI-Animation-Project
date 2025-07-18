@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:text="Destination"
             android:fontFamily="@font/poppins_bold"
-            android:textSize="@dimen/textSizeExtraLarge"
+            android:textSize="@dimen/textSizeLarge"
             android:textColor="@color/colorBlack"/>
 
         <LinearLayout
@@ -54,25 +54,29 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_outline_outbox"/>
+
                 <com.google.android.material.divider.MaterialDivider
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/marginSmall"
                     android:background="@color/colorLighterGray"/>
+
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:layout_width="match_parent"
+                    android:id="@+id/et_sender"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/colorTransparent"
                     android:textColorHint="@color/colorGray"
                     android:fontFamily="@font/poppins_regular"
                     android:imeOptions="actionNext"
+                    android:inputType="textAutoComplete"
                     android:hint="Sender location"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginMedium"
+                android:layout_marginTop="@dimen/marginSmall"
                 android:padding="@dimen/padding"
                 android:orientation="horizontal"
                 android:background="@drawable/ic_rounded_lighter_gray">
@@ -82,25 +86,29 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_outline_archive"/>
+
                 <com.google.android.material.divider.MaterialDivider
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/marginSmall"
                     android:background="@color/colorLighterGray"/>
+
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:layout_width="match_parent"
+                    android:id="@+id/et_receiver"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/colorTransparent"
                     android:textColorHint="@color/colorGray"
                     android:fontFamily="@font/poppins_regular"
                     android:imeOptions="actionNext"
+                    android:inputType="textAutoComplete"
                     android:hint="Receiver location"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginMedium"
+                android:layout_marginTop="@dimen/marginSmall"
                 android:padding="@dimen/padding"
                 android:orientation="horizontal"
                 android:background="@drawable/ic_rounded_lighter_gray">
@@ -110,13 +118,15 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_empty"/>
+
                 <com.google.android.material.divider.MaterialDivider
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/marginSmall"
                     android:background="@color/colorLighterGray"/>
+
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/location"
+                    android:id="@+id/et_weight"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -124,6 +134,7 @@
                     android:textColorHint="@color/colorGray"
                     android:fontFamily="@font/poppins_regular"
                     android:imeOptions="actionDone"
+                    android:inputType="textCapWords"
                     android:hint="Approx weight location"/>
             </LinearLayout>
 
@@ -156,7 +167,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_load"/>
+                android:src="@drawable/ic_box"/>
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
@@ -167,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Box"
-                android:fontFamily="@font/poppins_medium"
+                android:fontFamily="@font/poppins_bold"
                 android:textSize="@dimen/textSizeLarge"
                 android:textColor="@color/colorBlack"/>
             <androidx.appcompat.widget.AppCompatImageView

@@ -30,8 +30,8 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:scrollY="-20dp"
-        android:rotation="-40"
-        android:src="@drawable/ic_truck"/>
+        android:scaleType="centerCrop"
+        android:translationX="20dp"
+        android:src="@drawable/placeholder"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

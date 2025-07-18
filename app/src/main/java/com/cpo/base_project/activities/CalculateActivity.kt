@@ -3,7 +3,6 @@ package com.cpo.base_project.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
-import android.text.Spannable
 import android.text.TextWatcher
 import android.view.ViewTreeObserver
 import android.view.animation.AnimationUtils
@@ -26,14 +25,15 @@ class CalculateActivity: ComponentActivity() {
             toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
             button.setOnClickListener {
-                startActivity(Intent(this@CalculateActivity, CompletedActivity::class.java))
+                startActivity(Intent(this@CalculateActivity,
+                    CompletedActivity::class.java))
             }
         }
 
     }
 
     private fun editTextListener(){
-        binding.location.addTextChangedListener(object : TextWatcher{
+        binding.etWeight.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {

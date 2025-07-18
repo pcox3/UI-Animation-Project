@@ -1,5 +1,31 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:viewportHeight="300" android:viewportWidth="300" android:width="24dp">
-      
-    <path android:fillColor="#FFF" android:pathData="M150,0C67.16,0 0,67.16 0,150S67.16,300 150,300s150,-67.16 150,-150S232.84,0 150,0zM150,232.95c-10.77,0 -19.5,-8.73 -19.5,-19.5h38.99C169.5,224.23 160.76,232.95 150,232.95zM215.89,193.9h-0v-0c0,7.21 -5.84,7.68 -13.05,7.68H97.16c-7.21,0 -13.05,-0.47 -13.05,-7.68v-1.24c0,-5.18 3.05,-9.63 7.42,-11.73l4.14,-35.75c0,-26.17 18.51,-48.02 43.15,-53.17v-13.88c0,-6.17 5,-11.17 11.18,-11.17c6.17,0 11.17,5 11.17,11.17V92c24.64,5.15 43.15,27 43.15,53.17l4.14,35.76c4.38,2.11 7.42,6.54 7.42,11.73V193.9z"/>
-    
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- White filled circular background -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,0C18.627,0 24,5.373 24,12s-5.373,12 -12,12S0,18.627 0,12 5.373,0 12,0z" />
+
+    <!-- Scaled down, rounded notification bell centered in the icon -->
+    <group
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:translateX="3.6"
+        android:translateY="3.6">
+
+        <!-- Bell shape with rounded edges -->
+        <path
+            android:fillColor="#000000"
+            android:fillAlpha="0"
+            android:strokeColor="#000000"
+            android:strokeWidth="1.5"
+            android:strokeLineJoin="round"
+            android:strokeLineCap="round"
+            android:pathData="M12,21a2,2 0 0,0 2,-2h-4a2,2 0 0,0 2,2z
+                M18,16v-4.5c0,-2.8 -1.6,-5.2 -4.2,-5.8v-0.7a1.8,1.8 0 0,0 -3.6,0v0.7
+                C7.6,6.3 6,8.7 6,11.5V16l-1.5,1.5a0.5,0.5 0 0,0 0.4,0.9h14.2a0.5,0.5 0 0,0 0.4,-0.9L18,16z" />
+    </group>
 </vector>

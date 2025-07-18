@@ -4,49 +4,58 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.TextView
-import android.window.OnBackInvokedDispatcher
 import androidx.activity.ComponentActivity
+import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
 import com.cpo.base_project.R
-import com.cpo.base_project.adapters.DummyAdapter
+import com.cpo.base_project.adapters.History
+import com.cpo.base_project.adapters.HistoryAdapter
+import com.cpo.base_project.data.historyDummy
 import com.cpo.base_project.databinding.ActivityHistoryBinding
 import com.google.android.material.tabs.TabLayout
 
 class HistoryActivity: ComponentActivity() {
 
     private val binding by lazy { ActivityHistoryBinding.inflate(layoutInflater) }
+    private var historyAdapter: HistoryAdapter? = null
+    val tabTitles = arrayOf(Tab("All", 15),
+        Tab("Completed", 5),
+        Tab("In progress", 3),
+        Tab("Pending order", 4),
+        Tab("Cancelled", 0))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        with(binding){
+        onBackPressedDispatcher.addCallback(this) {
+            finishAfterTransition()
+        }
 
-            setupTabs()
+        with(binding){
 
             toolbar.setNavigationOnClickListener {
                 onBackPressedDispatcher.onBackPressed()
             }
 
-            DummyAdapter(R.layout.itemview_history).apply {
+            tabLayout.animation = AnimationUtils.loadAnimation(
+                this@HistoryActivity, R.anim.slide_in_from_right
+            )
+           historyAdapter = HistoryAdapter(this@HistoryActivity).apply {
                 historyRv.adapter = this
-                historyRv.animation = AnimationUtils.loadAnimation(
-                    this@HistoryActivity, R.anim.slide_up)
-
-                tabLayout.animation = AnimationUtils.loadAnimation(
-                    this@HistoryActivity, R.anim.slide_in_from_right
-                )
             }
+
+            setupTabs()
 
         }
 
     }
 
 
-    private fun setupTabs(){
-
+    private fun tabListener(){
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
+                historyAdapter?.setData(getHistory(tab?.text.toString()))
                 tab?.customView.apply {
                     this?.findViewById<TextView>(R.id.badge)
                         ?.backgroundTintList = ContextCompat.getColorStateList(
@@ -69,15 +78,17 @@ class HistoryActivity: ComponentActivity() {
 
             }
         })
+    }
+    private fun setupTabs(){
+        tabListener()
+        addTabBadges(tabTitles)
 
-        val tabTitles = arrayOf(Tab("All", 15),
-            Tab("Completed", 5),
-            Tab("In progress", 3),
-            Tab("Pending order", 4),
-            Tab("Cancelled", 0))
+    }
 
+    private fun addTabBadges(tabTitles: Array<Tab>){
         for (i in tabTitles.indices) {
             val tab = binding.tabLayout.newTab()
+            tab.text = tabTitles[i].title
             val customView = layoutInflater.inflate(R.layout.custom_tab_item, null)
 
             val tabTextView = customView.findViewById<TextView>(R.id.title)
@@ -89,7 +100,6 @@ class HistoryActivity: ComponentActivity() {
 
             tab.customView = customView
             binding.tabLayout.addTab(tab)
-            binding.tabLayout.getTabAt(0)?.select()
         }
     }
 
@@ -99,10 +109,25 @@ class HistoryActivity: ComponentActivity() {
     )
 
 
-
-    override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
-        finishAfterTransition()
-        return super.getOnBackInvokedDispatcher()
+    private fun getHistory(title: String): ArrayList<History>{
+        when(title){
+            "Completed" ->{
+                return historyDummy.filter { history -> history.status == "completed" }
+                    .toCollection(ArrayList())
+            }
+            "In progress" ->{
+                return historyDummy.filter { history -> history.status == "in-progress" }
+                    .toCollection(ArrayList())
+            }
+            "Pending order" ->{
+                return historyDummy.filter { history -> history.status == "loading" }
+                    .toCollection(ArrayList())
+            }
+            "All" -> {
+                return historyDummy
+            }
+            else -> return historyDummy
+        }
     }
 
 

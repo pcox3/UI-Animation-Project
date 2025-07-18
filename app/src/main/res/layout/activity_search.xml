@@ -27,6 +27,7 @@
             android:transitionName="search_bar"
             android:gravity="center"
             android:orientation="horizontal"
+            android:animateLayoutChanges="true"
             android:background="@drawable/ic_round">
 
             <androidx.appcompat.widget.SearchView
@@ -36,15 +37,13 @@
                 android:layout_weight="1"
                 android:queryBackground="@color/colorTransparent"
                 app:searchIcon="@drawable/icon_search"
-                app:autoShowKeyboard="true"
                 android:inputType="textAutoComplete"
-                android:focusableInTouchMode="true"
                 app:closeIcon="@null"
                 app:iconifiedByDefault="false"/>
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="@dimen/marginSmall"
                 android:src="@drawable/ic_scan"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -68,6 +67,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/ic_rounded"
             android:padding="@dimen/paddingSmall"
+            tools:itemCount="20"
             tools:listitem="@layout/itemview_search_result"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 

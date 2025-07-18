@@ -22,12 +22,13 @@
         app:layout_constraintVertical_bias="0.494" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text"
+        android:id="@+id/txt_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:text="loading"
+        android:fontFamily="@font/poppins_bold"
         android:drawableStart="@drawable/ic_shipment_history"
         android:drawableTint="@color/colorLoading"
         android:drawablePadding="@dimen/paddingSmallest"
@@ -36,12 +37,12 @@
         android:paddingHorizontal="@dimen/paddingSmall"
         android:paddingVertical="@dimen/paddingSmallest"
         android:textColor="@color/colorLoading"/>
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginSmall"
-        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintTop_toBottomOf="@id/txt_status"
         app:layout_constraintStart_toStartOf="parent"
         android:text="Arriving today!"
         android:textSize="@dimen/textSizeLarge"
@@ -55,14 +56,14 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Your delivery, #NEJ20089934122231, \n from Atlanta is arriving today!"
         android:textSize="@dimen/textSizeSmaller"
-        app:layout_constraintBottom_toTopOf="@+id/text3"
+        app:layout_constraintBottom_toTopOf="@+id/txt_amount"
         app:layout_constraintEnd_toStartOf="@+id/image"
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text1" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text3"
+        android:id="@+id/txt_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/marginSmall"
@@ -79,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/marginSmall"
         app:layout_constraintTop_toBottomOf="@id/text2"
-        app:layout_constraintStart_toEndOf="@id/text3"
+        app:layout_constraintStart_toEndOf="@id/txt_amount"
         android:layout_marginHorizontal="@dimen/marginSmall"
         android:text="Sep 20,2023"
         android:textSize="@dimen/textSizeSmaller"
