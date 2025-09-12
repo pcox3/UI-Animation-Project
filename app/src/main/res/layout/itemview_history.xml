@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/ic_rounded"
@@ -7,26 +8,21 @@
     android:clickable="true"
     android:focusable="true"
     android:padding="@dimen/padding"
-    android:layout_margin="@dimen/marginSmall"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_margin="@dimen/marginSmall">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="24dp"
         android:src="@drawable/ic_box"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.494" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txt_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:text="loading"
         android:fontFamily="@font/poppins_bold"
         android:drawableStart="@drawable/ic_shipment_history"
@@ -36,55 +32,58 @@
         android:backgroundTint="@color/colorLighterGray"
         android:paddingHorizontal="@dimen/paddingSmall"
         android:paddingVertical="@dimen/paddingSmallest"
-        android:textColor="@color/colorLoading"/>
+        android:textColor="@color/colorLoading"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_status"
-        app:layout_constraintStart_toStartOf="parent"
         android:text="Arriving today!"
         android:textSize="@dimen/textSizeLarge"
         android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        app:layout_constraintTop_toBottomOf="@id/txt_status"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
-        android:text="Your delivery, #NEJ20089934122231, \n from Atlanta is arriving today!"
+        android:layout_marginEnd="@dimen/marginMedium"
+        android:textColor="@color/colorGray"
+        android:text="Your delivery, #NEJ20089934122231, from Atlanta is arriving today!"
         android:textSize="@dimen/textSizeSmaller"
-        app:layout_constraintBottom_toTopOf="@+id/txt_amount"
-        app:layout_constraintEnd_toStartOf="@+id/image"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintTop_toBottomOf="@id/text1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text1" />
+        app:layout_constraintEnd_toStartOf="@+id/image"
+        app:layout_constraintBottom_toTopOf="@+id/txt_amount" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txt_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/marginSmall"
-        app:layout_constraintTop_toBottomOf="@id/text2"
-        app:layout_constraintStart_toStartOf="parent"
         android:text="$370 USD"
         android:textSize="@dimen/textSizeSmall"
         android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/text2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/marginSmall"
-        app:layout_constraintTop_toBottomOf="@id/text2"
-        app:layout_constraintStart_toEndOf="@id/txt_amount"
         android:layout_marginHorizontal="@dimen/marginSmall"
         android:text="Sep 20,2023"
         android:textSize="@dimen/textSizeSmaller"
         android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        app:layout_constraintTop_toBottomOf="@id/text2"
+        app:layout_constraintStart_toEndOf="@id/txt_amount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,12 +3,9 @@ package com.cpo.base_project.activities
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.core.app.ActivityOptionsCompat
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.cpo.base_project.R
 import com.cpo.base_project.adapters.DummyAdapter
 import com.cpo.base_project.databinding.ActivityMainBinding
@@ -30,7 +27,7 @@ class MainActivity : ComponentActivity() {
                 categoriesRv.adapter = this
             }
 
-            searchView.setOnSearchClickListener {
+            searchBar.setOnClickListener {
                 launch(SearchActivity(), searchBar, "search_bar")
             }
 

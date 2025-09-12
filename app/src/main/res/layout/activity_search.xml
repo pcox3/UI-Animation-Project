@@ -13,11 +13,7 @@
         android:padding="@dimen/paddingLarge"
         app:navigationIcon="@drawable/ic_arrow_back"
         app:contentInsetStartWithNavigation="5dp"
-        android:background="@color/colorPrimary"
-        app:titleCentered="true"
-        app:title="Calculate"
-        app:titleTextAppearance="@style/PopinsRegular"
-        app:titleTextColor="@color/colorWhite">
+        android:background="@color/colorPrimary">
 
         <LinearLayout
             android:id="@+id/search_bar"
@@ -56,7 +52,7 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/paddingLarge"
+        android:padding="@dimen/paddingMedium"
         android:layout_weight="1"
         android:background="@color/colorLighterGray"
         android:orientation="vertical">
